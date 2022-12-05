@@ -3,17 +3,17 @@ import java.util.*;
 public class Main {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	    Scanner sc = new Scanner(System.in);
 		
 		int h = sc.nextInt();
 		int m = sc.nextInt();
-		int c = sc.nextInt();
+		int a = sc.nextInt();
 		
-		if(m + c >= 60) {
-			h = h + (m + c) / 60;
-			m = (m + c) % 60;
+		if(m + a >= 60) {
+			h = h + (m + a) / 60;
+			m = (m + a) % 60;
 		}
-		else m += c;
+		else m = m+a;
 		
 		if(h > 23) h %= 24;
 		
