@@ -8,7 +8,6 @@ class Solution {
             babbling[i] = babbling[i].replaceFirst("ye", "1");
             babbling[i] = babbling[i].replaceFirst("ma", "1");
             babbling[i] = babbling[i].replace("1", "");
-            System.out.println(babbling[i]);
             if(babbling[i].isEmpty()) {
                 answer = answer + 1;
             }
