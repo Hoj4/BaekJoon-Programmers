@@ -1,0 +1,40 @@
+백준 2485번 문제 가로수.
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        List<Integer> p = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            int x = sc.nextInt();
+            p.add(x);
+        }
+
+        Collections.sort(p); // 가로수 위치를 오름차순 정렬
+
+        int d = p.get(1) - p.get(0);
+        for (int i = 2; i < n; i++) {
+            int dist = p.get(i) - p.get(i - 1);
+            d = gcd(d, dist);
+        }
+
+        int a = 0;
+        for (int i = 1; i < n; i++) {
+            int dist = p.get(i) - p.get(i - 1);
+            a += (dist / d) - 1;
+        }
+
+        System.out.println(a);
+    }
+
+    // 최대공약수 구하기
+    public static int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+}
