@@ -1,26 +1,21 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 import java.math.BigInteger;
 
 public class Main {
-	static boolean prime[] = new boolean[10004002];
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
 
-	public static void main(String[] args) throws Exception {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = sc.nextInt();
 
-		int t = Integer.parseInt(br.readLine());
+        for (int i = 0; i < N; i++) {
+            long num = sc.nextLong();
+            var bi = new BigInteger(String.valueOf(num));
 
-		for (int i = 0; i < t; i++) {
-			long num = Long.parseLong(br.readLine());
-			var bi = new BigInteger(String.valueOf(num));
-
-			if (bi.isProbablePrime(10)) {
-				System.out.println(num);
-			} else {
-				System.out.println(bi.nextProbablePrime());
-			}
-		}
-
-		br.close();
-	}
+            if (bi.isProbablePrime(10)) {
+                System.out.println(num);
+            } else {
+                System.out.println(bi.nextProbablePrime());
+            }
+        }
+    }
 }
