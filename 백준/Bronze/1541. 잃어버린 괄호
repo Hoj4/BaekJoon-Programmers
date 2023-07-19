@@ -1,0 +1,27 @@
+// https://www.acmicpc.net/problem/1541
+import java.util.*;
+​
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        // - 기준으로 분리
+        String[] arr = s.split("-");
+        int result = 0;
+        for(int i=0; i<arr.length; i++) {
+            // + 기준으로 분리
+            String[] nums = arr[i].split("\\+");
+            int sum = 0;
+            for(int j=0; j<nums.length; j++) {
+                sum += Integer.parseInt(nums[j]);
+            }
+            if(i == 0) {
+                result += sum;
+            } else {
+                result -= sum;
+            }
+        }
+        
+        System.out.println(result);
+    }
+}
