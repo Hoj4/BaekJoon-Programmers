@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        sc.nextLine(); // Consume the newline character
+
+        String[] arr = new String[N + 1];
+        HashMap<String, Integer> hashMap = new HashMap<>();
+
+        for (int i = 1; i <= N; i++) {
+            arr[i] = sc.nextLine();
+            hashMap.put(arr[i], i);
+        }
+        
+        for (int i = 0; i < M; i++) {
+            String s = sc.nextLine();
+            if (isNumber(s)) {
+                int i1 = Integer.parseInt(s);
+                System.out.println(arr[i1]);
+            } else {
+                System.out.println(hashMap.get(s));
+            }
+        }
+    }
+
+    private static boolean isNumber(String s) {
+        try {
+            int i = Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
+}
